@@ -21,7 +21,7 @@
     "params": {
       "message": "{{os.platform() === 'win32' ? 'python' : 'python3'}} gradio_app.py",
       "on": [{
-        "event": "/(http:\/\/[0-9.:]+)/",
+        "event": "/http:\/\/[0-9.]+:([0-9]+)/",
         "return": "{{event.matches[0][1]}}"
       }]
     }
@@ -29,7 +29,7 @@
     "method": "self.set",
     "params": {
       "session.json": {
-        "url": "{{input}}"
+        "url": "http://localhost:{{input}}"
       }
     }
   }, {
